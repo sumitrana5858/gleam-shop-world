@@ -8,8 +8,12 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
-    preview: {
-      allowedHosts: ["gleam-shop-world.onrender.com"]
-    }
+    server: { host: true },
+    preview: { host: true }
+  },
+  // 👇 IMPORTANT
+  server: {
+    port: process.env.PORT ? Number(process.env.PORT) : 3000,
+    host: "0.0.0.0"
   }
 });
